@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'myhomepage.dart';
 
-
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -14,18 +12,23 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnimatedSplashScreen(
-        splashIconSize: double.infinity,
-        // backgroundColor: Colors.red,
-        splash: Image.asset(
-          'assets/images/runcycle.gif',
-          fit: BoxFit.contain,
-          height: double.infinity,
-        ),
-        nextScreen: MyHomePage(),
-      ),
+          duration: 4000,
+          splashIconSize: double.infinity,
+          // backgroundColor: Colors.red,
+          splash: Image.asset(
+            'assets/splashscreenapp.png',
+            fit: BoxFit.fill,
+            height: double.infinity,
+          ),
+          nextScreen: const MyHomePage()),
     );
   }
 }

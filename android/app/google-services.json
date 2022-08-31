@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "439707790963",
+    "project_id": "asankary-857ec",
+    "storage_bucket": "asankary-857ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439707790963:android:0eaa71d69081bc3f700406",
+        "android_client_info": {
+          "package_name": "com.example.web_view_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439707790963-h806ttitp8t51464tj56eq68sjfqn097.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwfvc_6TC9GUg8ZW88MdByvOvxJ_3iCd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439707790963-h806ttitp8t51464tj56eq68sjfqn097.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
