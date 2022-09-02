@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -25,6 +27,10 @@ class _MyHomePageState extends State<MyHomePage> {
   initState() {
     super.initState();
     loading();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   late WebViewController controller;
@@ -39,11 +45,25 @@ class _MyHomePageState extends State<MyHomePage> {
               elevation: 0,
               shadowColor: Colors.transparent,
             ),
-            body: WebView(
-              javascriptMode: JavascriptMode.unrestricted,
-              initialUrl: 'https://asankary.com/ku/',
-              onWebViewCreated: (controller) => this.controller = controller,
-            ),
+            body: StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection("Web_Link")
+                    .snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(child: Text('Loading'));
+                  }
+                  return Stack(
+                    children: snapshot.data!.docs.map((element) {
+                      return WebView(
+                        javascriptMode: JavascriptMode.unrestricted,
+                        initialUrl: element['link'],
+                        onWebViewCreated: (controller) =>
+                            this.controller = controller,
+                      );
+                    }).toList(),
+                  );
+                }),
           ),
           onWillPop: () async {
             return false;
