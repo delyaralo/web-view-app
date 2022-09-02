@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             body: WebView(
               javascriptMode: JavascriptMode.unrestricted,
-              initialUrl: 'https://asankary.com/',
+              initialUrl: 'https://asankary.com/ku/',
               onWebViewCreated: (controller) => this.controller = controller,
             ),
           ),
