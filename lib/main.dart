@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:web_view_store/splash_screen.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-Future<void> _firebaseMessagingBackgroundHandler(message) async {
-  await Firebase.initializeApp();
-  print('Handling a background message ${message.messageId}');
-}
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(MyApp());
 }
 
