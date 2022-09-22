@@ -1,4 +1,4 @@
-package dev.Asankary.web_view_store
+package dev.AsankaryApp.web_view_store
 
 import io.flutter.embedding.android.FlutterActivity
 

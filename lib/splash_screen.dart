@@ -50,15 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // return FutureBuilder(
-    //     future: FireStoreDataBase().getData(),
-    //     builder: (context, snapshot) {
-    //       if (snapshot.hasError) {
-    //         return const Text(
-    //           "Something went wrong",
-    //         );
-    //       }
-    //       if (snapshot.connectionState == ConnectionState.done) {
+
     return AnimatedSplashScreen(
       duration: 4000,
       splashIconSize: double.infinity,
@@ -77,8 +69,6 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-//           return const Center(child: null);
-//         });
 }
 
 class Image_Connectivity extends StatefulWidget {
