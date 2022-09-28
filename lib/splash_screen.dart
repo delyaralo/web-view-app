@@ -50,7 +50,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.orange.withOpacity(0.01),
+      ),
+    );
     return AnimatedSplashScreen(
       duration: 4000,
       splashIconSize: double.infinity,
@@ -68,7 +72,6 @@ class _SplashScreenState extends State<SplashScreen> {
           : MyHomePage(),
     );
   }
-
 }
 
 class Image_Connectivity extends StatefulWidget {

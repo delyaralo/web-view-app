@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
-      title: 'WebView App',
+      title: 'Asankary App',
       theme: ThemeData(
         primaryColor: Colors.orangeAccent,
       ),

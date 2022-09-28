@@ -1,11 +1,8 @@
 import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -42,28 +39,33 @@ class _MyHomePageState extends State<MyHomePage> {
   late WebViewController controller;
 
   @override
-  Widget build(BuildContext context) => WillPopScope(
-        onWillPop: () async {
-          if (await controller.canGoBack()) {
-            controller.goBack();
-            return false;
-          } else {
-            return true;
-          }
-        },
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            shadowColor: Colors.transparent,
-          ),
-          body: WebView(
+  Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.yellowAccent.withGreen(192),
+      ),
+    );
+    return WillPopScope(
+      onWillPop: () async {
+        if (await controller.canGoBack()) {
+          controller.goBack();
+          return false;
+        } else {
+          return true;
+        }
+      },
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(top: 50),
+          child: WebView(
             javascriptMode: JavascriptMode.unrestricted,
             initialUrl: 'https://asankary.com/',
             onWebViewCreated: (controller) => this.controller = controller,
           ),
         ),
-      );
+      ),
+    );
+  }
 
   void initMessaging() {
     var androiInit = AndroidInitializationSettings('@mipmap/ic_launcher');
