@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.AsankaryAppweb.web_view_store">
+    package="dev.AsankaryAppwebstore.web_view_store">
     <application
         android:label="Asankary"
         android:name="${applicationName}"
